@@ -12,7 +12,7 @@ public class State {
     String stateName;
 
     public State(String dataLine) {
-        System.out.println("In State: " + dataLine);
+        //System.out.println("In State: " + dataLine);
 
         Scanner scanner = new Scanner(dataLine);
         scanner.useDelimiter("\\(");
@@ -27,6 +27,7 @@ public class State {
             if(counter==0) {
                 stateName = innerScanner.next();
                 initialValue = innerScanner.nextDouble();
+
                 //System.out.println("State Name: " + stateName + ", Value: " + initialValue);
             } else {
 
@@ -38,7 +39,9 @@ public class State {
             }
             counter++;
             innerScanner.close();
+            this.setPreviousValue(initialValue);
         }
+
 
     }
     public double getInitialValue() {
